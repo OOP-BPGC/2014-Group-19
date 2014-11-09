@@ -9,3 +9,4 @@ We have usd following tools while development phase:
 •	Eclipse IDE for code development and JUnit Tests
 •	ArgoUML and Visual Paradigm for UML Diagrams
 •	GitHub for sharing it
+
