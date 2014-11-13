@@ -2,6 +2,7 @@ import java.util.Date;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -83,16 +84,17 @@ public String search(String key) {
 				mat = pat.matcher(strLine);
 				boolean found = mat.matches();
 				if (found) {
-					System.out.println(strLine);
-
+					result +=('\n'+strLine);
 				}
 			}
 			ind.close();
-		} catch (Exception e) {
+		} catch (IOException e) {
 			return "Error: " + e.getMessage();
 		}
 		return result;
 	}
+	
+	
 	public boolean subscribeToFeed() {
 
 	}
