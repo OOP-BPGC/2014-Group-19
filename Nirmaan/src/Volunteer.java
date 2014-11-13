@@ -1,3 +1,11 @@
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Volunteer extends Student {
 	private String username;
 	private String password;
@@ -44,9 +52,32 @@ public class Volunteer extends Student {
 		}
 	}
 
-	public String search(String str) {
+	public String search(String key) {
 
+		Pattern pat;
+		Matcher mat;
+		String result = "";
+		pat = Pattern.compile(".*" + key + ".*");
+
+		try {
+			FileInputStream fstream = new FileInputStream("file.txt");
+			DataInputStream ind = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(ind));
+			String strLine;
+			while ((strLine = br.readLine()) != null) {
+				mat = pat.matcher(strLine);
+				boolean found = mat.matches();
+				if (found) {
+					result +=('\n'+strLine);
+				}
+			}
+			ind.close();
+		} catch (IOException  e) {
+			return "Error: " + e.getMessage();
+		}
+		return result;
 	}
+
 
 	public boolean subscribeToFeed() {
 
