@@ -37,43 +37,43 @@ public class Coordinator extends Student
 		StringBuffer sb = new StringBuffer();
 		BufferedReader br = null;
 		int resultCount=0;
-		
+
 		File dir = new File("D:/3-1/cs_f212_oops/workspace/Lab9/Directory");	//path of directory
-		  File[] directoryListing = dir.listFiles();
-		  if (directoryListing != null) {
-		    for (File child : directoryListing) {
-			
-		try {
-			br = new BufferedReader(new FileReader(child));	
-			String line;
-			try {
-				while ((line = br.readLine()) != null)
+		File[] directoryListing = dir.listFiles();
+		if (directoryListing != null) {
+			for (File child : directoryListing) {
+
+				try {
+					br = new BufferedReader(new FileReader(child));	
+					String line;
+					try {
+						while ((line = br.readLine()) != null)
+						{
+
+							String lineLower = line.toLowerCase();	//to ignore case in search
+							//processing the line
+							if(lineLower.matches(".*"+s.toLowerCase()+".*"))
+							{
+								resultCount++;
+								sb.append("Search Result No."+resultCount+"     :	");//may remove this
+								sb.append(line);
+								sb.append("\n");	//nextLine
+							}	
+						}
+					} catch (IOException e) {e.printStackTrace();}
+				} catch (FileNotFoundException e) {e.printStackTrace();}
+				finally
 				{
-					
-					String lineLower = line.toLowerCase();	//to ignore case in search
-					//processing the line
-					if(lineLower.matches(".*"+s.toLowerCase()+".*"))
-					{
-						resultCount++;
-						sb.append("Search Result No."+resultCount+"     :	");//may remove this
-						sb.append(line);
-						sb.append("\n");	//nextLine
-					}	
+					try {br.close();
+					} catch (IOException e) {e.printStackTrace();}
 				}
-			} catch (IOException e) {e.printStackTrace();}
-		} catch (FileNotFoundException e) {e.printStackTrace();}
-		finally
-		{
-			try {br.close();
-			} catch (IOException e) {e.printStackTrace();}
+
+
+			}
 		}
-		
-			
-		}
- }
-		  else{System.out.println("No directory");}
-		
-		
+		else{System.out.println("No file in directory or no such directory");}
+
+
 		return sb.toString();
 	}
 
