@@ -68,7 +68,7 @@ public class Member extends Student {
 		}
 	}
 
-public String search(String key) {
+	public String search(String key) {
 
 		Pattern pat;
 		Matcher mat;
