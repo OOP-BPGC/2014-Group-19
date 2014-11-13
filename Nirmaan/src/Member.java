@@ -1,4 +1,10 @@
 import java.util.Date;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Member extends Student {
 	protected String username;
@@ -61,10 +67,32 @@ public class Member extends Student {
 		}
 	}
 
-	public String search(String str) {
+public String search(String key) {
 
+		Pattern pat;
+		Matcher mat;
+		String result = "";
+		pat = Pattern.compile(".*" + key + ".*");
+
+		try {
+			FileInputStream fstream = new FileInputStream("file.txt");
+			DataInputStream ind = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(ind));
+			String strLine;
+			while ((strLine = br.readLine()) != null) {
+				mat = pat.matcher(strLine);
+				boolean found = mat.matches();
+				if (found) {
+					System.out.println(strLine);
+
+				}
+			}
+			ind.close();
+		} catch (Exception e) {
+			return "Error: " + e.getMessage();
+		}
+		return result;
 	}
-
 	public boolean subscribeToFeed() {
 
 	}
