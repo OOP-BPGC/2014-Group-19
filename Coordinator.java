@@ -71,7 +71,7 @@ public class Coordinator extends Student
 
 			}
 		}
-		else{System.out.println("No file in directory or no such directory");}
+		else{System.out.println("No such directory found");}
 
 
 		return sb.toString();
