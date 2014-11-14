@@ -1,3 +1,13 @@
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Student {
 	protected String name;
 	protected String email;
@@ -14,4 +24,55 @@ public class Student {
 		this.phone = ph;
 	}
 
+	public String search(String key) {
+
+		Pattern pat;
+		Matcher mat;
+		String result = "";
+		pat = Pattern.compile(".*" + key + ".*");
+
+		try {
+			FileInputStream fstream = new FileInputStream("file.txt");
+			DataInputStream ind = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(ind));
+			String strLine;
+			while ((strLine = br.readLine()) != null) {
+				mat = pat.matcher(strLine);
+				boolean found = mat.matches();
+				if (found) {
+					result += ('\n' + strLine);
+				}
+			}
+			ind.close();
+		} catch (IOException e) {
+			return "Error: " + e.getMessage();
+		}
+		return result;
+	}
+
+	public String encryptPassword(String inputPassword) {
+		String passwordToHash = inputPassword;
+		String generatedPassword = null;
+		try {
+			// Create MessageDigest instance for MD5
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			// Add password bytes to digest
+			md.update(passwordToHash.getBytes());
+			// Get the hash's bytes
+			byte[] bytes = md.digest();
+			// This bytes[] has bytes in decimal format;
+			// Convert it to hexadecimal format
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < bytes.length; i++) {
+				sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16)
+						.substring(1));
+			}
+			// Get complete hashed password in hex format
+			generatedPassword = sb.toString();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		System.out.println(generatedPassword);
+		return generatedPassword;
+	}
 }

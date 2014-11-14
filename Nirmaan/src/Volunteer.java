@@ -36,11 +36,12 @@ public class Volunteer extends Student {
 	}
 
 	public boolean login(String user, String pass) {
-
+		pass = this.encryptPassword(pass);
+		return false;
 	}
 
 	public boolean logout() {
-
+		return false;
 	}
 
 	public void promote(Event event) {
@@ -68,26 +69,26 @@ public class Volunteer extends Student {
 				mat = pat.matcher(strLine);
 				boolean found = mat.matches();
 				if (found) {
-					result +=('\n'+strLine);
+					result += ('\n' + strLine);
 				}
 			}
 			ind.close();
-		} catch (IOException  e) {
+		} catch (IOException e) {
 			return "Error: " + e.getMessage();
 		}
 		return result;
 	}
 
-
 	public boolean subscribeToFeed() {
-
+		return false;
 	}
 
 	public String seeSchedule() {
-
+		return "Done";
 	}
 
 	public boolean enrollforEvent(Event evt) {
+		return false;
 
 	}
 }

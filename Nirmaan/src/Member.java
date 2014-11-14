@@ -52,10 +52,12 @@ public class Member extends Student {
 	}
 
 	public boolean login(String user, String pass) {
-		
+		pass = this.encryptPassword(pass);
+		return false;
 	}
 
 	public boolean logout() {
+		return false;
 
 	}
 
@@ -96,14 +98,17 @@ public class Member extends Student {
 	
 	
 	public boolean subscribeToFeed() {
+		return false;
 
 	}
 
 	public String seeSchedule() {
+		return "Done";
 
 	}
 
 	public boolean enrollforEvent(Event evt) {
+		return false;
 			
 	}
 }
