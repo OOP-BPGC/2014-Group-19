@@ -10,3 +10,7 @@ We have usd following tools while development phase:
 •	ArgoUML and Visual Paradigm for UML Diagrams
 •	GitHub for sharing it
 
+NOTE:
+  Database is present on local server.
+  As of now our program cannot create a database in other systems.
+  There has to be a mysql server with user 'tempUser' and NO password to run this Application.
