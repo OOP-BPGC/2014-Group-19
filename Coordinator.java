@@ -36,63 +36,44 @@ public class Coordinator extends Student
 	{
 		StringBuffer sb = new StringBuffer();
 		BufferedReader br = null;
-		File[] files = new File[4];
-		files[0] = new File("userData.txt");
-		files[1] = new File("meetingData.txt");
-		files[2] = new File("eventData.txt");		
-		files[3] = new File("activityData.txt");	//NullPointerException if do not specify anything to each
 		int resultCount=0;
-		
-		
-		for(int i=0;i<4;i++)
-		
-		{	
-			
-		try {
-			br = new BufferedReader(new FileReader(files[i]));	
-			String line;
-			try {
-				while ((line = br.readLine()) != null)
+
+		File dir = new File("D:/3-1/cs_f212_oops/workspace/Lab9/Directory");	//path of directory
+		File[] directoryListing = dir.listFiles();
+		if (directoryListing != null) {
+			for (File child : directoryListing) {
+
+				try {
+					br = new BufferedReader(new FileReader(child));	
+					String line;
+					try {
+						while ((line = br.readLine()) != null)
+						{
+
+							String lineLower = line.toLowerCase();	//to ignore case in search
+							//processing the line
+							if(lineLower.matches(".*"+s.toLowerCase()+".*"))
+							{
+								resultCount++;
+								sb.append("Search Result No."+resultCount+"     :	");//may remove this
+								sb.append(line);
+								sb.append("\n");	//nextLine
+							}	
+						}
+					} catch (IOException e) {e.printStackTrace();}
+				} catch (FileNotFoundException e) {e.printStackTrace();}
+				finally
 				{
-					//to ignore case in search
-					String lineLower = line.toLowerCase();
-					
-//					if(line.matches(".*"+s+".*"))
-//					{
-//						System.out.println("also Works");
-//					}
-					//processing the line
-					if(lineLower.contains(s.toLowerCase()))
-					{
-						resultCount++;
-						sb.append("Search Result No."+resultCount+"     :	");
-						sb.append(line);
-						sb.append("\n");	//nextLine
-					}	
+					try {br.close();
+					} catch (IOException e) {e.printStackTrace();}
 				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		finally
-		{
-			try {
-				br.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+
+
 			}
 		}
-		
-			
-		}
-		
-		
-		
+		else{System.out.println("No such directory found");}
+
+
 		return sb.toString();
 	}
 
