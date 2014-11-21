@@ -9,8 +9,10 @@ We have usd following tools while development phase:
 •	Eclipse IDE for code development and JUnit Tests
 •	ArgoUML and Visual Paradigm for UML Diagrams
 •	GitHub for sharing it
+•	H2 Database for storing and retrieving data.
 
 NOTE:
-  Database is present on local server.
-  As of now our program cannot create a database in other systems.
-  There has to be a mysql server with user 'tempUser' and NO password to run this Application.
+  Database being used is H2 Database( jar file is provided in source)
+  Database is supposed to run in server mode and include H2 jar in project build path.
+  Username and Password for H2 Database are 'tempUser' and 'abc' respectively.
+  Change the schema name to nirmaanTemp in H2 console.
