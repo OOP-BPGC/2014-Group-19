@@ -30,7 +30,7 @@ public class Volunteer extends Student {
 			this.password = pass;
 
 			db.runUpdate("INSERT ", "INTO ",
-					"userData(name,id,email,phone,username,passowrd) ",
+					"userData(name,id,email,phone,username,password) ",
 					"VALUES('" + this.name + "'," + this.id + ",'" + this.email
 							+ "','" + this.phone + "','" + this.username
 							+ "','" + this.password + "') ", "");
@@ -62,7 +62,7 @@ public class Volunteer extends Student {
 		PreparedStatement tempStmt = null;
 
 		tempStmt = db
-				.prepStatement("SELECT username,passowrd from userData where username=? and passowrd=?");
+				.prepStatement("SELECT username,password from userData where username=? and password=?");
 		try {
 			// bind values to compare
 			tempStmt.setString(1, user);
@@ -70,7 +70,7 @@ public class Volunteer extends Student {
 			ResultSet tempRs = tempStmt.executeQuery();
 			if (tempRs.next()) {
 				String fromDB_username = tempRs.getString("username");
-				String fromDB_password = tempRs.getString("passowrd");
+				String fromDB_password = tempRs.getString("password");
 				if (user.matches(fromDB_username)
 						&& pass.matches(fromDB_password)) {
 					System.out.println("Login Successful...");

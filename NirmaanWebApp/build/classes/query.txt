@@ -1,3 +1,0 @@
-DROP USER 'temp'@'localhost';
-CREATE USER 'temp'@'localhost' identified by "";
-GRANT ALL PRIVILEGES ON *.* TO 'temp'@'localhost' WITH GRANT OPTION;

@@ -19,7 +19,7 @@ import com.nirmaan.people.Volunteer;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	final String USER = "tempUser";
-	final String PASS = "";
+	final String PASS = "abc";
 	private static final long serialVersionUID = 1L;
 
 	/**

@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Database {
-	final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	final String DB_URL = "jdbc:mysql://localhost/nirmaan";
+	final String JDBC_DRIVER = "org.h2.Driver";
+	final String DB_URL = "jdbc:h2:tcp://localhost/~/nirmaanTemp";
 
 	Connection conn = null;
 	Statement stmt = null;
@@ -25,7 +25,7 @@ public class Database {
 
 		try {
 			// Register for JDBC Driver
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(JDBC_DRIVER);
 
 			// Open a Connection
 			System.out.println("Opening a connection......");
@@ -65,7 +65,7 @@ public class Database {
 				String email = result.getString("email");
 				String phone = result.getString("phone");
 				String username = result.getString("username");
-				String password = result.getString("passowrd");
+				String password = result.getString("password");
 
 				// Display values
 				System.out.print("Name: " + name);
@@ -106,10 +106,10 @@ public class Database {
 		return true;
 	}
 
-	public boolean runQuery(String firstPart, String columns,
+	public ResultSet runQuery(String firstPart, String columns,
 			String secondPart, String tables, String lastPart) {
 		String query = firstPart;
-		ResultSet tempRs;
+		ResultSet tempRs = null;
 		Statement tempStmt = null;
 
 		// making query from arguments
@@ -122,11 +122,12 @@ public class Database {
 			System.out.println(query);
 			tempStmt = conn.createStatement();
 			tempRs = tempStmt.executeQuery(query);
-			displayResults(tempRs);
+//			displayResults(tempRs);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.exit(0);
 		}
-		return true;
+		return tempRs;
 	}
 
 	public boolean runUpdate(String firstPart, String columns,

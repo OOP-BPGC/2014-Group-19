@@ -111,11 +111,11 @@ form fieldset a:hover {
 				<p>
 					<input type="password" required value="PASSWORD" name="password">
 				</p>
-				<!-- 			<p>
-					<input type="radio" name="category" value="M" checked>Member <br>
-					<input type="radio" name="category" value="V">Volunteer
+				<p>
+					<input type="radio" name="category" value="1" checked>Member
+					<br> <input type="radio" name="category" value="0">Volunteer
 				</p>
- -->
+
 				<p>
 					<input type="submit" value="Login">
 				</p>
