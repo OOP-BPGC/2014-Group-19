@@ -3,16 +3,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-<<<<<<< HEAD
 import com.nirmaan.database.Database;
-=======
-/**
- * @author Group-19
- *Class to manage Feeds
- */
-
-public class Feed {
->>>>>>> be67708a7b2b21984355b57c5653a612235d720f
 
 public class Feed {
 	private String feed_head;
@@ -38,13 +29,8 @@ public class Feed {
 		return feed_body;
 	}
 
-<<<<<<< HEAD
 	public void addSubscriber(String sub) {
 		this.subscribers.add(sub);
-=======
-	
-	public void addSubscriber() {
->>>>>>> be67708a7b2b21984355b57c5653a612235d720f
 	}
 	
 	public void printFeeds(Database db) {

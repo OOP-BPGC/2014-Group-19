@@ -114,6 +114,7 @@ form fieldset a:hover {
 				<p>
 					<input type="radio" name="category" value="1" checked>Member
 					<br> <input type="radio" name="category" value="0">Volunteer
+					<br> <input type="radio" name="category" value="2">Co-ordinator
 				</p>
 
 				<p>

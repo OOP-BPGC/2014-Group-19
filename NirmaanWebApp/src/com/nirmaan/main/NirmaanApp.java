@@ -10,10 +10,6 @@ import com.nirmaan.people.Coordinator;
 import com.nirmaan.people.Member;
 import com.nirmaan.people.Student;
 
-/**
- * @author Group-19
- * Class to create database
- */
 public class NirmaanApp {
 
 	public static void main(String[] args) {
@@ -32,12 +28,14 @@ public class NirmaanApp {
 //		
 //		Student s = new Student();
 //		System.out.println(s.search("varsheeth"));
-	//	Event e = new Event("Joy of coding", new Date("2015-11-13"),  new Date("2015-11-20"), db);
-
-		Coordinator cod1 = new Coordinator("abc", 245, "hij", "klm");
-		cod1.scheduleEvent("Demo13", new Date(2015,2,16), new Date(2015,2,17), db);
+		Event e = new Event();
 		
-//		boolean  temp = cod1.scheduleMeeting(new Date(2014,11,13), new Time(20,10,00), "B-Dome", db);
+//		Date d =  new Date(2017,5,19) ;
+//		Date d2 = new Date(2090,9,17) ;
+//
+	Coordinator cod1 = new Coordinator("abc", 245, "hij", "klm");
+//		cod1.scheduleEvent("Demo68",d,d2 , db);
+	cod1.scheduleActivity(e, "Streetplay","Joy OF Giving", " venue",new Date(2017,5,19),new Time(11,0,0), new Time(12,0,0), db);//		boolean  temp = cod1.scheduleMeeting(new Date(2014,11,13), new Time(20,10,00), "B-Dome", db);
 //		System.out.println(temp);
 		
 //		Member m1 = new Member();
@@ -51,22 +49,4 @@ public class NirmaanApp {
 		System.out.println("Bye, Bye!!!!");
 	}
 
-<<<<<<< HEAD
 }
-=======
-	/**
-	 * @param path  String
-	 */
-	public static void executeScript(String path) {
-		try {
-			ProcessBuilder pb = new ProcessBuilder(path);
-			Process p = pb.start(); // Start the process.
-			p.waitFor(); // Wait for the process to finish.
-			System.out.println("Script executed successfully");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-}
->>>>>>> be67708a7b2b21984355b57c5653a612235d720f

@@ -12,10 +12,6 @@ import com.nirmaan.database.Database;
 import com.nirmaan.others.Event;
 import com.nirmaan.others.Meeting;
 
-/**
- * @author Group-19
- *
- */
 public class Member extends Student {
 	protected String username;
 	protected String password;
@@ -25,27 +21,11 @@ public class Member extends Student {
 		super();
 	}
 
-	/**
-	 * @param n name
-	 * @param id id
-	 * @param e email
-	 * @param p phone no.
-	 */
 	public Member(String n, int id, String e, String p) {
 
 		super(n, id, e, p);
 	}
 
-	/**
-	 * @param name name
-	 * @param id id
-	 * @param email email
-	 * @param phone phone no.
-	 * @param user username
-	 * @param pass password
-	 * @param db database
-	 * @return
-	 */
 	public boolean signup(String name, int id, String email, String phone,
 			String user, String pass, Database db) {
 		try {
@@ -71,12 +51,6 @@ public class Member extends Student {
 		return true;
 	}
 
-	/**
-	 * @param user username
-	 * @param pass password
-	 * @param db database
-	 * @return boolean
-	 */
 	public boolean signup(String user, String pass, Database db) {
 		try {
 			this.username = user;
@@ -92,12 +66,6 @@ public class Member extends Student {
 		return true;
 	}
 
-	/**
-	 * @param user username
-	 * @param pass password
-	 * @param db database
-	 * @return boolean
-	 */
 	public boolean login(String user, String pass, Database db) {
 		PreparedStatement tempStmt = null;
 
@@ -131,9 +99,6 @@ public class Member extends Student {
 		return false;
 	}
 
-	/**
-	 * @return boolean
-	 */
 	public boolean logout() {
 		return false;
 	}
@@ -147,9 +112,6 @@ public class Member extends Student {
 		}
 	}
 
-	/**
-	 * @return boolean
-	 */
 	public boolean subscribeToFeed() {
 		if (this.feedVariable == false) {
 			this.feedVariable = true;

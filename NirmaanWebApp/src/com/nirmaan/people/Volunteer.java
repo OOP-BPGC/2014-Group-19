@@ -8,42 +8,19 @@ import com.nirmaan.database.Database;
 import com.nirmaan.others.Event;
 import com.nirmaan.others.Meeting;
 
-/**
- * @author Group-19
- *
- */
 public class Volunteer extends Student {
 	private String username;
 	private String password;
 	protected int feed_var;
 
-	/**
-	 * 
-	 */
 	public Volunteer() {
 		super();
 	}
 
-	/**
-	 * @param n name
-	 * @param id id
-	 * @param e email
-	 * @param p phone no.
-	 */
 	public Volunteer(String n, int id, String e, String p) {
 		super(n, id, e, p);
 	}
 
-	/**
-	 * @param name name
-	 * @param id id
-	 * @param email email
-	 * @param phone phone no.
-	 * @param user username
-	 * @param pass password
-	 * @param db database
-	 * @return
-	 */
 	public boolean signup(String name, int id, String email, String phone,
 			String user, String pass, Database db) {
 		try {
@@ -68,12 +45,6 @@ public class Volunteer extends Student {
 		return true;
 	}
 
-	/**
-	 * @param user username
-	 * @param pass password
-	 * @param db database
-	 * @return boolean
-	 */
 	public boolean signup(String user, String pass, Database db) {
 		try {
 			this.username = user;
@@ -89,12 +60,6 @@ public class Volunteer extends Student {
 		return true;
 	}
 
-	/**
-	 * @param user username
-	 * @param pass password
-	 * @param db database
-	 * @return boolean
-	 */
 	public boolean login(String user, String pass, Database db) {
 		PreparedStatement tempStmt = null;
 
@@ -132,9 +97,6 @@ public class Volunteer extends Student {
 		return false;
 	}
 
-	/**
-	 * @param event Event
-	 */
 	public void promote(Event event) {
 		for (int i = 0; i < 10; i++) {
 			System.out.println("Nirmaan Event!!! --" + event.getName());
@@ -145,23 +107,12 @@ public class Volunteer extends Student {
 	}
 
 	public boolean subscribeToFeed() {
-<<<<<<< HEAD
 		if (this.feedVariable == false) {
 			this.feedVariable = true;
 			System.out.println("Thanks for Subscribing!!!");
 			return true;
 		} else
 			return false;
-=======
-		return false;
-	}
-
-	/**
-	 * @return String
-	 */
-	public String seeSchedule() {
-		return "Done";
->>>>>>> be67708a7b2b21984355b57c5653a612235d720f
 	}
 
 	public void  seeSchedule(Database db) {

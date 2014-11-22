@@ -1,3 +1,4 @@
+<%@page import="java.io.IOException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -22,7 +23,7 @@ h1 {
 	font-size: 1em;
 }
 
-h1, p {
+h1,p {
 	margin-bottom: 10px;
 }
 
@@ -40,7 +41,7 @@ strong {
 	width: 300px;
 }
 
-form fieldset input[type="text"], input[type="password"] {
+form fieldset input[type="text"],input[type="password"] {
 	background-color: #e5e5e5;
 	border: none;
 	border-radius: 3px;
@@ -101,7 +102,11 @@ form fieldset a:hover {
 	<center>
 		<h2>
 			<%
-				out.println("Welcome, start your journey with Nirmaan Organisation");
+				try {
+					out.println("Welcome, start your journey with Nirmaan Organisation");
+				} catch (IOException e) {
+
+				}
 			%>
 		</h2>
 	</center>
