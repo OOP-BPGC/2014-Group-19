@@ -1,0 +1,18 @@
+a. Positives of group :
+1. Participation of all members.
+2. Good skills and understanding.
+3. Distribution of work.
+4. Quick decision making.
+
+b. Negatives of group :
+1. Communication gap.
+2. No fixed time or place to check work before submissions. 
+3. Hesitation in asking for help from other group members.
+
+c. What we would  do different next time: 
+1. Start writing code earlier.
+2. Have more meetings even after UML diagram part.
+3. make deadlines for small parts of task and then ask and help the person 
+	if he/she could not finish by deadline.
+4. work of each member should be checked again by at least two other
+   members.
