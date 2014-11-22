@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * class having all methods to make connection to online localhost H2 database
+ */
 public class Database {
 	final String JDBC_DRIVER = "org.h2.Driver";
 	final String DB_URL = "jdbc:h2:tcp://localhost/~/nirmaanTemp";
@@ -15,12 +18,22 @@ public class Database {
 	Statement stmt = null;
 	PreparedStatement pStmt = null;
 
+	/**
+	 * Constructor 
+	 * @param user the username
+	 * @param pass the password
+	 */
 	public Database(String user, String pass) {
 		if (this.createConnection(user, pass) != null) {
 			System.out.println("Connection to database successfull!!!");
 		}
 	}
 
+	/**
+	 * @param user the username
+	 * @param pass the password
+	 * @return
+	 */
 	public Connection createConnection(String user, String pass) {
 
 		try {
@@ -40,6 +53,10 @@ public class Database {
 		return conn;
 	}
 
+	/**
+	 * @param query the method that executes queries sent to the database engine
+	 * @return  PreparedStatement
+	 */
 	public PreparedStatement prepStatement(String query) {
 		PreparedStatement tempStmt = null;
 		String sql = query;
@@ -56,6 +73,9 @@ public class Database {
 		return tempStmt;
 	}
 
+	/**
+	 * @param result  The method to display all the results
+	 */
 	public void displayResults(ResultSet result) {
 		try {
 			while (result.next()) {
@@ -82,6 +102,15 @@ public class Database {
 		}
 	}
 
+	/**
+	 * @param name name
+	 * @param id id
+	 * @param email email
+	 * @param phone phone
+	 * @param username username
+	 * @param password password
+	 * @return boolean
+	 */
 	public boolean insertTouser(String name, String id, String email,
 			String phone, String username, String password) {
 		ResultSet rst;
@@ -106,6 +135,14 @@ public class Database {
 		return true;
 	}
 
+	/**
+	 * @param firstPart  firstPart
+	 * @param columns columns
+	 * @param secondPart secondPart
+	 * @param tables tables
+	 * @param lastPart lastPart
+	 * @return ResultSet
+	 */
 	public ResultSet runQuery(String firstPart, String columns,
 			String secondPart, String tables, String lastPart) {
 		String query = firstPart;
@@ -130,6 +167,14 @@ public class Database {
 		return tempRs;
 	}
 
+	/**
+	 * @param firstPart
+	 * @param columns
+	 * @param secondPart
+	 * @param tables
+	 * @param lastPart
+	 * @return boolean
+	 */
 	public boolean runUpdate(String firstPart, String columns,
 			String secondPart, String tables, String lastPart) {
 		String query = firstPart;
@@ -156,6 +201,9 @@ public class Database {
 		return true;
 	}
 
+	/**
+	 * @return boolean
+	 */
 	public boolean closeConnections() {
 		try {
 			if (this.stmt != null)

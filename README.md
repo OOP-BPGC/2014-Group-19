@@ -16,3 +16,4 @@ NOTE:
   Database is supposed to run in server mode and include H2 jar in project build path.
   Username and Password for H2 Database are 'tempUser' and 'abc' respectively.
   Change the schema name to nirmaanTemp in H2 console.
+  JavaDocs are created for every class.

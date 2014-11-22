@@ -19,24 +19,58 @@ import com.nirmaan.others.Event;
 import com.nirmaan.others.Feed;
 import com.nirmaan.others.Meeting;
 
+/**
+ * @author Group-19
+ * The class in subclasss of class Member
+ */
 public class Coordinator extends Member {
 
+	/**
+	 * @param n name
+	 * @param string id
+	 * @param e email
+	 * @param p phone no.
+	 */
 	public Coordinator(String n, int string, String e, String p) {
 		super(n, string, e, p);
 	}
 
+	/**
+	 * @param user username
+	 * @param pass password
+	 * @return
+	 */
 	public boolean login(String user, String pass) {
 		pass = this.encryptPassword(pass);
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see people.Member#logout()
+	 */
 	public boolean logout() {
 		return false;
 
 	}
 
+<<<<<<< HEAD
 	public boolean scheduleMeeting(Date date, Time startTime, String venue,
 			Database db) {
+=======
+	/**
+	 * @param date date
+	 * @param startTime startTime
+	 * @param endTime endTime
+	 * @param venue
+	 * @param db database
+	 * @return true/false
+	 */
+	public boolean scheduleMeeting(Date date, Time startTime, Time endTime,
+			String venue, Database db) {
+
+		boolean flagmeet = true;
+
+>>>>>>> be67708a7b2b21984355b57c5653a612235d720f
 		Date dt;
 		Time st;
 		String vnu;
@@ -112,6 +146,7 @@ public class Coordinator extends Member {
 		return flagmeet;
 	}
 
+<<<<<<< HEAD
 	public boolean scheduleEvent(String name, Date startDate, Date endDate,
 			Database db) {
 
@@ -167,6 +202,29 @@ public class Coordinator extends Member {
 		// while(run tru the database)
 		Statement stmt = null;
 		ResultSet rs1 = null;
+=======
+	/**
+	 * @param name name
+	 * @param startDate startDate
+	 * @param endDate endDate
+	 * @return boolean
+	 */
+	public boolean scheduleEvent(String name, Date startDate, Date endDate) {
+		return false;
+	}
+
+	/**
+	 * @param name name
+	 * @param startDate startDate
+	 * @param endDate endDate
+	 * @param startTime startTime
+	 * @param endTime endDate
+	 * @return boolean
+	 */
+	public boolean scheduleActivity(String name, Date startDate, Date endDate,
+			Time startTime, Time endTime) {
+		return false;
+>>>>>>> be67708a7b2b21984355b57c5653a612235d720f
 
 		rs1 = db.runQuery("select meet_time from meeting", "", "", "", "");
 		try {
@@ -205,9 +263,18 @@ public class Coordinator extends Member {
 		return flagdate;
 	}
 
+<<<<<<< HEAD
 	public boolean postFeed(String head, String body, Database db) {
 		Feed feed = new Feed(head, body, db);
 		return true;
+=======
+	/**
+	 * @param msg string
+	 * @return
+	 */
+	public boolean postFeed(String msg) {
+		return false;
+>>>>>>> be67708a7b2b21984355b57c5653a612235d720f
 	}
 
 	public boolean openRegistration(Event evt) {

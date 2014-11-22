@@ -10,6 +10,10 @@ import com.nirmaan.people.Coordinator;
 import com.nirmaan.people.Member;
 import com.nirmaan.people.Student;
 
+/**
+ * @author Group-19
+ * Class to create database
+ */
 public class NirmaanApp {
 
 	public static void main(String[] args) {
@@ -47,4 +51,22 @@ public class NirmaanApp {
 		System.out.println("Bye, Bye!!!!");
 	}
 
+<<<<<<< HEAD
 }
+=======
+	/**
+	 * @param path  String
+	 */
+	public static void executeScript(String path) {
+		try {
+			ProcessBuilder pb = new ProcessBuilder(path);
+			Process p = pb.start(); // Start the process.
+			p.waitFor(); // Wait for the process to finish.
+			System.out.println("Script executed successfully");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}
+>>>>>>> be67708a7b2b21984355b57c5653a612235d720f

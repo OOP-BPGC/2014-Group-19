@@ -5,14 +5,31 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.Date;
 
+<<<<<<< HEAD
 import com.nirmaan.database.Database;
 
+=======
+/**
+ * @author Group-19
+ *
+ */
+>>>>>>> be67708a7b2b21984355b57c5653a612235d720f
 public class Meeting {
 	private Time startTime;
 	private Date date;
 	private String venue;
 
+<<<<<<< HEAD
 	public Meeting(String v, Date d, Time st, Database db) {
+=======
+	/**
+	 * @param v venue
+	 * @param d date
+	 * @param st start time
+	 * @param et end time
+	 */
+	public Meeting(String v, Date d, Time st, Time et) {
+>>>>>>> be67708a7b2b21984355b57c5653a612235d720f
 		this.venue = v;
 		this.date = d;
 		this.startTime = st;
