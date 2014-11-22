@@ -14,11 +14,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
+/**
+ * Class DumpDatabase to dump all teh database data to file
+ * contains main method
+ */
 public class DumpDatabase {
    private Connection conn;
    private PrintWriter out;
 
-   public static void main(String[] args) {
+ /**
+ * To create file and call methods 
+ */
+public static void main(String[] args) {
       try {
          DumpDatabase app = new DumpDatabase();
          String timestamp = new SimpleDateFormat("MMdd-hhmmss")
@@ -33,7 +40,12 @@ public class DumpDatabase {
       }
    }
 
-   public DumpDatabase() throws IOException, 
+   /**
+ * @throws IOException
+ * @throws ClassNotFoundException
+ * @throws SQLException
+ */
+public DumpDatabase() throws IOException, 
 ClassNotFoundException, SQLException {
       // Get database connection from hibernate.properties.
       // Or hard-code your own JDBC connection if desired.
@@ -54,7 +66,12 @@ ClassNotFoundException, SQLException {
       conn = DriverManager.getConnection(url, user, password);
    }
    
-   public void dumpDatabase(String fileName) 
+   /**
+ * @param fileName file where data is the be dumped
+ * @throws FileNotFoundException
+ * @throws SQLException
+ */
+public void dumpDatabase(String fileName) 
 throws FileNotFoundException, SQLException {
       out = new PrintWriter(fileName);
       listAll();
@@ -62,7 +79,10 @@ throws FileNotFoundException, SQLException {
       conn.close();
    }
 
-   public void listAll() throws SQLException {
+   /**
+ * @throws SQLException
+ */
+public void listAll() throws SQLException {
       DatabaseMetaData metadata = conn.getMetaData();
       String[] types = { "TABLE" };
       ResultSet rs = metadata.getTables(
@@ -73,7 +93,11 @@ null, null, null, types);
       }
    }
 
-   private void listTable(String tableName) throws SQLException  {
+   /**
+ * @param tableName Name of table to be dumped
+ * @throws SQLException
+ */
+private void listTable(String tableName) throws SQLException  {
       PreparedStatement statement = conn.prepareStatement(
             "select * from " + tableName + " a");
       out.println("----" + tableName + "----");
@@ -87,7 +111,11 @@ null, null, null, types);
       }
    }
 
-   private void printTableColumns(ResultSet rs) 
+ /**
+ * @param rs ResultSet
+ * @throws SQLException
+ */
+private void printTableColumns(ResultSet rs) 
 throws SQLException {
       ResultSetMetaData metaData = rs.getMetaData();
       for(int i = 0; i < metaData.getColumnCount(); i++) {
@@ -99,7 +127,11 @@ throws SQLException {
       out.println("");
    }
 
-   private void printResultRow(ResultSet rs) throws SQLException {
+   /**
+ * @param rs ResultSet
+ * @throws SQLException
+ */
+private void printResultRow(ResultSet rs) throws SQLException {
       ResultSetMetaData metaData = rs.getMetaData();
       for(int i = 0; i < metaData.getColumnCount(); i++) {
          String column = metaData.getColumnName(i + 1);
