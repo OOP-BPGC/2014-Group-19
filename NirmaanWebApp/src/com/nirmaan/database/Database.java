@@ -122,7 +122,7 @@ public class Database {
 			System.out.println(query);
 			tempStmt = conn.createStatement();
 			tempRs = tempStmt.executeQuery(query);
-//			displayResults(tempRs);
+			// displayResults(tempRs);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.exit(0);
@@ -168,8 +168,36 @@ public class Database {
 			se.printStackTrace();
 			return false;
 		}
-		System.out.println("Database Connections cloased successfully.");
+		System.out.println("Database Connections closed successfully.");
 		return true;
+	}
+
+	public void exportData(String filename, String tablename) {
+		Statement stmt;
+		String query = "";
+		try {
+			// stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+			// ResultSet.CONCUR_UPDATABLE);
+			stmt = conn.createStatement();
+
+			// For comma separated file
+			query = "call CSVWRITE ( '" + filename + "', 'SELECT * FROM "
+					+ tablename + "' ) ";
+
+			stmt.executeQuery(query);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			stmt = null;
+		}
+	}
+
+	public void exportAllData() {
+		this.exportData("/home/lelouch/temp/userData.csv", "userData");
+		this.exportData("/home/lelouch/temp/events.csv", "events");
+		this.exportData("/home/lelouch/temp/activity.csv", "activity");
+		this.exportData("/home/lelouch/temp/feed.csv", "feed");
+
 	}
 
 }

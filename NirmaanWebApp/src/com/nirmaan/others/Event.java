@@ -3,6 +3,7 @@ package com.nirmaan.others;
 import java.sql.Time;
 import java.util.*;
 
+import com.nirmaan.database.Database;
 import com.nirmaan.people.Member;
 import com.nirmaan.people.Volunteer;
 
@@ -14,6 +15,16 @@ public class Event {
 	private ArrayList<Activity> activityList;
 	private ArrayList<Member> memberList;
 	private ArrayList<Volunteer> volunteerList;
+
+	public Event(String name, Date sd, Date ed, Database db) {
+		this.name = name;
+		this.startDate = sd;
+		this.endDate = ed;
+
+		db.runUpdate("INSERT INTO ", "events(event_name, startDate, endDate)",
+				"VALUES('" + this.getStartDate().toString() + "','"
+						+ this.getEndDate().toString() + "')", "", "");
+	}
 
 	public String getName() {
 		return name;
@@ -61,12 +72,6 @@ public class Event {
 
 	public void setVolunteerList(ArrayList<Volunteer> volunteerList) {
 		this.volunteerList = volunteerList;
-	}
-
-	public Event(String n, Date sd, Date ed) {
-		this.name = n;
-		this.startDate = sd;
-		this.endDate = ed;
 	}
 }
 

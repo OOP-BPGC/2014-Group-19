@@ -10,9 +10,9 @@ import java.sql.Time;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import com.nirmaan.database.Database;
 import com.nirmaan.others.Event;
+import com.nirmaan.others.Feed;
 import com.nirmaan.others.Meeting;
 
 public class Coordinator extends Member {
@@ -31,71 +31,48 @@ public class Coordinator extends Member {
 
 	}
 
-	public boolean scheduleMeeting(Date date, Time startTime, Time endTime,
-			String venue, Database db) {
+//	
 
-		boolean flagmeet = true;
-
-		Date dt;
-		Time st;
-		Time et;
-		String vnu;
-
-		// while(run tru the database for date)
-
-		Pattern pat;
-		Matcher mat;
-		String result = "";
-		pat = Pattern.compile(".*" + date + ".*");
-		try {
-
-			FileInputStream fstream = new FileInputStream("file.txt");
-			DataInputStream ind = new DataInputStream(fstream);
-			BufferedReader br = new BufferedReader(new InputStreamReader(ind));
-			String strLine;
-			while ((strLine = br.readLine()) != null) {
-				mat = pat.matcher(strLine);
-				boolean found = mat.matches();
-				if (found) {
-
-					// while(run tru the database for time)
-
-					while (rs1.next()) {
-						// Retrieve by column name
-						// int id = rs1.getInt("id");
-						// int age = rs1.getInt("age");
-						st = rs1.getTime("startdate");
-						et = rs1.getTime("enddate");
-
-						if ((st.after(startTime) && st.before(endTime))
-								|| (et.before(endTime) && et.after(startTime))) {
-							flagmeet = false;
-							return flagmeet;
-							break;
-						}
-
-					}
-				}
-
-			}
-
-			Meeting meetnext = new Meeting(venue, date, startTime, endTime);
-			return flagmeet;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-
-		} finally {
-			return flagmeet;
-
-		}
-
-	}
-
-	public boolean scheduleEvent(String name, Date startDate, Date endDate) {
-		return false;
-	}
+//	public boolean scheduleEvent(String name, Date startDate, Date endDate, Database db) {
+//
+//		boolean flagdate = true;
+//		Date strd;
+//		Date endd;
+//
+//		// while(run tru the database)
+//		Connection conn = null;
+//		Statement stmt = null;
+//		ResultSet rs1 = null;
+//		try {
+//			while (rs1.next()) {
+//				// Retrieve by column name
+//				// int id = rs1.getInt("id");
+//				// int age = rs1.getInt("age");
+//				strd = rs1.getDate("startdate");
+//				endd = rs1.getDate("enddate");
+//
+//				if ((strd.after(startDate) && strd.before(endDate))
+//						|| (endd.before(endDate) && endd.after(startDate))) {
+//					flagdate = false;
+//					return flagdate;
+//
+//				}
+//
+//			}
+//			if (flagdate == true) {
+//				Event next = new Event(name, startDate, endDate);
+//				return flagdate;
+//
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//
+//		finally {
+//			return flagdate;
+//		}
+//
+//	}
 
 	public boolean scheduleActivity(String name, Date startDate, Date endDate,
 			Time startTime, Time endTime) {
@@ -103,8 +80,9 @@ public class Coordinator extends Member {
 
 	}
 
-	public boolean postFeed(String msg) {
-		return false;
+	public boolean postFeed(String head, String body, Database db) {
+		Feed feed = new Feed(head, body, db);
+		return true;
 	}
 
 	public boolean openRegistration(Event evt) {

@@ -117,8 +117,7 @@ public class Member extends Student {
 			return false;
 	}
 
-	public String seeSchedule() {
-		return "Done";
+	public void seeSchedule() {
 
 	}
 

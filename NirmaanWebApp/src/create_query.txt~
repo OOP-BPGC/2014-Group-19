@@ -1,5 +1,9 @@
+DROP DATABASE IF EXISTS nirmaanTemp;
+CREATE DATABASE nirmaanTemp;
+use nirmaanTemp;
+
 DROP TABLE IF EXISTS userData;
-CREATE TABLE `userData` (
+CREATE TABLE `nirmaanTemp`.`userData` (
   `name` VARCHAR(255) NOT NULL,
   `id` INT NOT NULL,
   `email` VARCHAR(255) NOT NULL,
@@ -9,7 +13,7 @@ CREATE TABLE `userData` (
   PRIMARY KEY (`id`));
 
 DROP TABLE IF EXISTS events;
-CREATE TABLE `events` (
+CREATE TABLE `nirmaanTemp`.`events` (
   `event_id` INT NOT NULL AUTO_INCREMENT,
   `event_name` VARCHAR(255) NOT NULL,
   `startDate` DATE NOT NULL,
@@ -17,7 +21,7 @@ CREATE TABLE `events` (
   PRIMARY KEY (`event_id`));
 
 DROP TABLE IF EXISTS activity;
-CREATE TABLE `activity` (
+CREATE TABLE `nirmaanTemp`.`activity` (
   `activity_id` INT NOT NULL AUTO_INCREMENT,
   `event_id` INT NOT NULL,
   `activity_name` VARCHAR(255) NOT NULL,
@@ -33,7 +37,7 @@ CREATE TABLE `activity` (
 	ON UPDATE NO ACTION);
 
 DROP TABLE IF EXISTS feed;
-CREATE TABLE `feed` (
+CREATE TABLE `nirmaanTemp`.`feed` (
   `feed_id` INT NOT NULL AUTO_INCREMENT,
   `feed_name` VARCHAR(255) NOT NULL,
   PRIMARY KEY(`feed_id`));

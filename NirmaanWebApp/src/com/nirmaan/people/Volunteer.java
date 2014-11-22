@@ -10,6 +10,7 @@ import com.nirmaan.others.Event;
 public class Volunteer extends Student {
 	private String username;
 	private String password;
+	protected int feed_var;
 
 	public Volunteer() {
 		super();

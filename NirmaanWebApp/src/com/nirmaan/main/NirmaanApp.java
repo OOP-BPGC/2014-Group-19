@@ -1,19 +1,30 @@
 package com.nirmaan.main;
 
+import java.util.Date;
+
 import com.nirmaan.database.Database;
+import com.nirmaan.others.Event;
+import com.nirmaan.others.Feed;
 import com.nirmaan.people.Coordinator;
 import com.nirmaan.people.Member;
+import com.nirmaan.people.Student;
 
 public class NirmaanApp {
 
 	public static void main(String[] args) {
-		executeScript("./create_database.sh");
 
 		// Database user credentials
 		final String USER = "tempUser";
-		final String PASS = "";
+		final String PASS = "abc";
 		
 		Database db = new Database(USER, PASS);
+		db.exportAllData();
+		
+		Feed f = new Feed("Test Feed", "This feed is only for testing purpose!!!", db);
+		
+		Student s = new Student();
+		System.out.println(s.search("varsheeth"));
+//		Event e = new Event("Joy of Enjoying", new Date("2013-11-13"),  new Date("2013-11-14"), db);
 
 //		Coordinator cod1 = new Coordinator("abc", 243, "hij", "klm");
 //		cod1.signup("cod1_nirmaan", "cod1_pass", db);
@@ -27,17 +38,6 @@ public class NirmaanApp {
 //				"VALUES('abc',242,'abc@gmail.com','9876543210','phoenix','inspiron') ","");
 
 		System.out.println("Bye, Bye!!!!");
-	}
-
-	public static void executeScript(String path) {
-		try {
-			ProcessBuilder pb = new ProcessBuilder(path);
-			Process p = pb.start(); // Start the process.
-			p.waitFor(); // Wait for the process to finish.
-			System.out.println("Script executed successfully");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 }

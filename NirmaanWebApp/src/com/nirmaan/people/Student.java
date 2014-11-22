@@ -10,6 +10,46 @@ import java.security.NoSuchAlgorithmException;
 
 public class Student {
 	protected String name;
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public boolean isFeedVariable() {
+		return feedVariable;
+	}
+
+	public void setFeedVariable(boolean feedVariable) {
+		this.feedVariable = feedVariable;
+	}
+
 	protected String email;
 	protected int id;
 	protected String phone;
@@ -30,7 +70,7 @@ public class Student {
 		BufferedReader br = null;
 		int resultCount = 0;
 
-		File dir = new File("D:/3-1/cs_f212_oops/workspace/Lab9/Directory"); // path
+		File dir = new File("/home/lelouch/temp/"); // path
 																				// of
 																				// directory
 		File[] directoryListing = dir.listFiles();
