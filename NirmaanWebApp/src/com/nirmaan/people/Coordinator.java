@@ -15,22 +15,48 @@ import com.nirmaan.database.Database;
 import com.nirmaan.others.Event;
 import com.nirmaan.others.Meeting;
 
+/**
+ * @author Group-19
+ *
+ */
 public class Coordinator extends Member {
 
+	/**
+	 * @param n name
+	 * @param string id
+	 * @param e email
+	 * @param p phone no.
+	 */
 	public Coordinator(String n, int string, String e, String p) {
 		super(n, string, e, p);
 	}
 
+	/**
+	 * @param user username
+	 * @param pass password
+	 * @return
+	 */
 	public boolean login(String user, String pass) {
 		pass = this.encryptPassword(pass);
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see people.Member#logout()
+	 */
 	public boolean logout() {
 		return false;
 
 	}
 
+	/**
+	 * @param date date
+	 * @param startTime startTime
+	 * @param endTime endTime
+	 * @param venue
+	 * @param db database
+	 * @return true/false
+	 */
 	public boolean scheduleMeeting(Date date, Time startTime, Time endTime,
 			String venue, Database db) {
 
@@ -93,16 +119,34 @@ public class Coordinator extends Member {
 
 	}
 
+	/**
+	 * @param name name
+	 * @param startDate startDate
+	 * @param endDate endDate
+	 * @return boolean
+	 */
 	public boolean scheduleEvent(String name, Date startDate, Date endDate) {
 		return false;
 	}
 
+	/**
+	 * @param name name
+	 * @param startDate startDate
+	 * @param endDate endDate
+	 * @param startTime startTime
+	 * @param endTime endDate
+	 * @return boolean
+	 */
 	public boolean scheduleActivity(String name, Date startDate, Date endDate,
 			Time startTime, Time endTime) {
 		return false;
 
 	}
 
+	/**
+	 * @param msg string
+	 * @return
+	 */
 	public boolean postFeed(String msg) {
 		return false;
 	}
