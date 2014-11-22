@@ -17,7 +17,7 @@ import com.nirmaan.others.Meeting;
 
 /**
  * @author Group-19
- *
+ * The class in subclasss of class Member
  */
 public class Coordinator extends Member {
 
