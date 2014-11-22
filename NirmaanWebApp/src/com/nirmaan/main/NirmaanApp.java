@@ -4,6 +4,10 @@ import com.nirmaan.database.Database;
 import com.nirmaan.people.Coordinator;
 import com.nirmaan.people.Member;
 
+/**
+ * @author Group-19
+ * Class to create database
+ */
 public class NirmaanApp {
 
 	public static void main(String[] args) {
@@ -29,6 +33,9 @@ public class NirmaanApp {
 		System.out.println("Bye, Bye!!!!");
 	}
 
+	/**
+	 * @param path  String
+	 */
 	public static void executeScript(String path) {
 		try {
 			ProcessBuilder pb = new ProcessBuilder(path);
