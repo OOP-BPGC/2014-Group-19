@@ -1,6 +1,11 @@
 package com.nirmaan.others;
 import java.util.ArrayList;
 
+/**
+ * @author Group-19
+ *Class to manage Feeds
+ */
+
 public class Feed {
 
 	private ArrayList<Meeting> meetings;
@@ -19,6 +24,7 @@ public class Feed {
 		return null;
 	}
 
+	
 	public void addSubscriber() {
 	}
 
