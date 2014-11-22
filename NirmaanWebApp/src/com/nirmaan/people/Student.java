@@ -8,6 +8,10 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * @author Group-19
+ *
+ */
 public class Student {
 	protected String name;
 	protected String email;
@@ -18,6 +22,13 @@ public class Student {
 	public Student() {
 	}
 
+	/**
+	 * @param n name
+	 * @param id id
+	 * @param em email
+	 * @param ph phone no.
+
+	 */
 	public Student(String n, int id, String em, String ph) {
 		this.name = n;
 		this.id = id;
@@ -25,6 +36,10 @@ public class Student {
 		this.phone = ph;
 	}
 
+	/**
+	 * @param s key
+	 * @return
+	 */
 	public String search(String s) {
 		StringBuffer sb = new StringBuffer();
 		BufferedReader br = null;
@@ -77,6 +92,10 @@ public class Student {
 		return sb.toString();
 	}
 
+	/**
+	 * @param inputPassword Password
+	 * @return String
+	 */
 	public String encryptPassword(String inputPassword) {
 		String passwordToHash = inputPassword;
 		String generatedPassword = null;
