@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import com.nirmaan.database.Database;
 import com.nirmaan.others.Event;
+import com.nirmaan.others.Meeting;
 
 public class Volunteer extends Student {
 	private String username;
@@ -106,15 +107,38 @@ public class Volunteer extends Student {
 	}
 
 	public boolean subscribeToFeed() {
-		return false;
+		if (this.feedVariable == false) {
+			this.feedVariable = true;
+			System.out.println("Thanks for Subscribing!!!");
+			return true;
+		} else
+			return false;
 	}
 
-	public String seeSchedule() {
-		return "Done";
+	public void  seeSchedule(Database db) {
+
+		Event evt = new Event();
+		evt.printEvents(db);
+		Meeting meet = new Meeting();
+		meet.printMeetings(db);
 	}
 
-	public boolean enrollforEvent(Event evt) {
-		return false;
-
-	}
+	public boolean enrollforEvent(Event evt){
+		
+		boolean enroll = true;
+		
+		if(evt.get_openclose() == true)
+		{
+			
+		evt.setVolunteerList(this) ;
+		System.out.println("The member is enrolled for the event");
+		}
+		else
+		{
+		System.out.println("The registrations for the event are closed");
+		enroll = false;
+		}
+		
+		return enroll;
+}
 }

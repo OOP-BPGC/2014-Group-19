@@ -1,5 +1,6 @@
 package com.nirmaan.main;
 
+import java.sql.Time;
 import java.util.Date;
 
 import com.nirmaan.database.Database;
@@ -20,14 +21,20 @@ public class NirmaanApp {
 		Database db = new Database(USER, PASS);
 		db.exportAllData();
 		
-		Feed f = new Feed("Test Feed", "This feed is only for testing purpose!!!", db);
+//		
 		
-		Student s = new Student();
-		System.out.println(s.search("varsheeth"));
-//		Event e = new Event("Joy of Enjoying", new Date("2013-11-13"),  new Date("2013-11-14"), db);
+		
+//		Feed f = new Feed("Test Feed", "This feed is only for testing purpose!!!", db);
+//		
+//		Student s = new Student();
+//		System.out.println(s.search("varsheeth"));
+	//	Event e = new Event("Joy of coding", new Date("2015-11-13"),  new Date("2015-11-20"), db);
 
-//		Coordinator cod1 = new Coordinator("abc", 243, "hij", "klm");
-//		cod1.signup("cod1_nirmaan", "cod1_pass", db);
+		Coordinator cod1 = new Coordinator("abc", 245, "hij", "klm");
+		cod1.scheduleEvent("Demo13", new Date(2015,2,16), new Date(2015,2,17), db);
+		
+//		boolean  temp = cod1.scheduleMeeting(new Date(2014,11,13), new Time(20,10,00), "B-Dome", db);
+//		System.out.println(temp);
 		
 //		Member m1 = new Member();
 //		m1.login("cod1_nirmaan", "cod1_pass", db);

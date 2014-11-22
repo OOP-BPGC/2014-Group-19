@@ -1,12 +1,16 @@
 package com.nirmaan.people;
 
 import java.util.Date;
+import com.nirmaan.others.*;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import com.nirmaan.database.Database;
 import com.nirmaan.others.Event;
+import com.nirmaan.others.Meeting;
 
 public class Member extends Student {
 	protected String username;
@@ -117,12 +121,33 @@ public class Member extends Student {
 			return false;
 	}
 
-	public void seeSchedule() {
 
+	public void seeSchedule(Database db) throws SQLException // create a member table with name event sd ed  activity date 
+	{
+			Event evt = new Event();
+			evt.printEvents(db);
+			Meeting meet = new Meeting();
+			meet.printMeetings(db);
+			
 	}
-
-	public boolean enrollforEvent(Event evt) {
-		return false;
-
-	}
+	
+	
+public boolean enrollforEvent(Event evt) {
+		
+		boolean enroll = true;
+		
+		if(evt.get_openclose() == true)
+		{
+			
+		evt.set_memberList(this) ;
+		System.out.println("The member is enrolled for the event");
+		}
+		else
+		{
+		System.out.println("The registrations for the event are closed");
+		enroll = false;
+		}
+		
+		return enroll;
+}
 }

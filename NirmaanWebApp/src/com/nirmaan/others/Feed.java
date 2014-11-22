@@ -38,7 +38,7 @@ public class Feed {
 		tempRs = db.runQuery("select * from feed", "", "", "", "");
 		try {
 			while (tempRs.next()) {
-				String id = tempRs.getString("feed_id");
+				int id = tempRs.getInt("feed_id");
 				String name = tempRs.getString("feed_name");
 
 				System.out.println(id + " " + name);

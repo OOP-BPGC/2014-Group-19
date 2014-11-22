@@ -148,6 +148,9 @@ public class Database {
 			System.out.println("Executed runUpdate..");
 		} catch (SQLException e) {
 			e.printStackTrace();
+			if(e.getErrorCode() == 23505)	{
+				System.out.println("Already Eists!!!");
+			}
 			System.exit(0);
 		}
 		return true;
@@ -197,6 +200,7 @@ public class Database {
 		this.exportData("/home/lelouch/temp/events.csv", "events");
 		this.exportData("/home/lelouch/temp/activity.csv", "activity");
 		this.exportData("/home/lelouch/temp/feed.csv", "feed");
+		this.exportData("/home/lelouch/temp/meeting.csv", "meeting");
 
 	}
 

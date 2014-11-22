@@ -12,14 +12,21 @@ public class Meeting {
 	private Date date;
 	private String venue;
 
-	public Meeting(String v, Date d, Time st, Time et, Database db) {
+	public Meeting(String v, Date d, Time st, Database db) {
 		this.venue = v;
 		this.date = d;
 		this.startTime = st;
+		
+		String time_query = st.getHours() + ":" + st.getMinutes() + ":" + st.getSeconds();
+		String date_query = d.getYear() + "-" + d.getMonth() + "-" + d.getDate();
 
-		db.runUpdate("INSERT INTO ", "meeting(meet_venue, meetdate, meettime)",
-				"VALUES('" + this.venue + "','"+ this.getDate().toString() + "','"
-						+ this.getStartTime().toString() + "')", "", "");
+		db.runUpdate("INSERT INTO ", "meeting(meet_venue, meet_date, meet_time)",
+				"VALUES('" + this.venue + "','"+ date_query + "','"
+						+ time_query + "')", "", "");
+	}
+
+	public Meeting() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Time getStartTime() {
