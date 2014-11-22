@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="com.nirmaan.database.Database,com.nirmaan.others.Event"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,29 +12,18 @@
 <body>
 	<div>
 		<center>
-		<b style="color: teal;"><font size="4"><%
-			if(request.getParameter("events") != null){
-				String attr = request.getParameter("events");
-				out.println(attr);
-			}
-			else if(request.getParameter("activities") != null){
-				String attr = request.getParameter("activities");
-				out.println(attr);
-			}
-			else if(request.getParameter("schedule") != null){
-				String attr = request.getParameter("schedule");
-				out.println(attr);
-			}
-			else if(request.getParameter("promote") != null){
-				String attr = request.getParameter("promote");
-				out.println(attr);
-			}
-			else {
-				out.println("OOPS!");
-			}
-		%>
-		</font>
-		</b>
+			<b style="color: teal;"><font size="4"> 
+			<%!
+			final String USER = "tempUser";
+			final String PASS = "abc";
+			Database db = null;
+			Event e = new Event();
+			%> 
+			<%
+				db = new Database(USER, PASS);
+ 				out.println(e.printEvents(db));
+ 			%>
+			</font> </b>
 		</center>
 	</div>
 </body>

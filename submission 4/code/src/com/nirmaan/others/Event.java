@@ -128,8 +128,8 @@ public class Event {
 			while (tempRs.next()) {
 				int id = tempRs.getInt("event_id");
 				String name = tempRs.getString("event_name");
-				Date sdate = tempRs.getDate("event_sdate");
-				Date edate = tempRs.getDate("event_edate");
+				Date sdate = tempRs.getDate("startdate");
+				Date edate = tempRs.getDate("enddate");
 
 				String sdate_query = sdate.getYear() + "-" + sdate.getMonth()
 						+ "-" + sdate.getDate();
@@ -251,18 +251,21 @@ class Activity {
 				int id = tempRs.getInt("activity_id");
 				String event_name = tempRs.getString("event_name");
 				String name = tempRs.getString("activity_name");
-				Date sdate = tempRs.getDate("event_sdate");
-				Time stime = tempRs.getTime("activity_stime");
-				Time etime = tempRs.getTime("activity_etime");
+				Date sdate = tempRs.getDate("startdate");
+				Time stime = tempRs.getTime("starttime");
+				Time etime = tempRs.getTime("endtime");
+				String venue = tempRs.getString("venue");
 
 				String sdate_query = sdate.getYear() + "-" + sdate.getMonth()
 						+ "-" + sdate.getDate();
-				String stime_query = stime.getYear() + "-" + stime.getMonth()
-						+ "-" + stime.getDate();
-				String etime_query = etime.getYear() + "-" + etime.getMonth()
-						+ "-" + etime.getDate();
+				String stime_query = stime.getHours() + "-" + stime.getMinutes()
+						+ "-" + stime.getSeconds();
+				String etime_query = etime.getHours() + "-" + etime.getMinutes()
+						+ "-" + etime.getSeconds();
 
 				temp = id + " " + name;
+				temp += "\n";
+				temp = temp + venue;
 				temp += "\n";
 				temp = temp + sdate_query;
 				temp += "\n";
