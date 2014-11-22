@@ -1,6 +1,6 @@
 package oop.project.NirmanAppTest;
 
-import oop.project.nirmanApp.*;
+import com.nirmaan.people*;
 import junit.framework.TestCase;
 
 public class TestVolunteer extends TestCase 

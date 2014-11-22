@@ -3,7 +3,7 @@ package oop.project.NirmanAppTest;
 import java.sql.Time;
 import java.util.Date;
 
-import oop.project.nirmanApp.*;
+import com.nirmaan.people*;
 
 import junit.framework.*;
 

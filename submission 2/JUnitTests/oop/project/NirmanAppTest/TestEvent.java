@@ -2,7 +2,7 @@ package oop.project.NirmanAppTest;
 
 import java.util.Date;
 
-import oop.project.nirmanApp.*;
+import com.nirmaan.others*;
 
 import junit.framework.TestCase;
 
